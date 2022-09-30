@@ -12,6 +12,11 @@ cursor = conexao.cursor()
 # cursor.execute('INSERT INTO clientes (nome, peso) VALUES ("William Novaes", 80.5)')
 # conexao.commit()
 
+cursor.execute('UPDATE clientes SET peso=:peso WHERE id=:id',
+               {'peso': 70, 'id': 2}
+)
+conexao.commit()
+
 cursor.execute('SELECT * FROM clientes')
 
 for linha in cursor.fetchall():
